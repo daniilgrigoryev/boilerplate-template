@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App.jsx'
+import App from '~/components/App.jsx'
 
-import './assets/styles/index.css'
+import '~/assets/styles/index.css'
 
 ReactDOM.render(<App />, document.getElementById('app'))
 
-console.log(1)
+console.log('валера, настало твое время')

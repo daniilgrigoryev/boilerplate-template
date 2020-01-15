@@ -15,7 +15,6 @@ module.exports = (env, argv) => {
       filename: '[name].[contenthash].js', // авторские файлы
       publicPath: isProduction ? undefined : '/assets/',
     },
-    cache: true,
     module: {
       rules: [
         {
@@ -25,18 +24,15 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader', 'postcss-loader'],
+          use: ['style-loader', 'postcss-loader'],
         },
         {
-          test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|otf|svg|svgz)(\?.+)?$/,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 64,
-              },
-            },
-          ],
+          test: /\.(png|jpg|jpeg|gif|svg)$/,
+          loader: 'url-loader?limit=1&name=images/[name].[ext]',
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf)$/,
+          loader: 'url-loader?limit=1000000&name=src/fonts/[name].[ext]',
         },
       ],
     },
@@ -47,8 +43,16 @@ module.exports = (env, argv) => {
       extensions: ['*', '.js', '.jsx', '.css'],
     },
     optimization: {
+      moduleIds: 'hashed',
+      runtimeChunk: 'single',
       splitChunks: {
-        chunks: 'all', // include all types of chunks
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
       },
     },
     plugins: [
