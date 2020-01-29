@@ -1,28 +1,22 @@
 {
-	"root": true,	
+  "root": true,
   "env": {
-		"es6": true,
-		"browser": true,
-		"node": true
-	},
-	"parserOptions": {
-		"sourceType": "module",
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
   },
-	"extends": [
-		"eslint:recommended",
-		"plugin:react/recommended"
-	],
-	"plugins": [
-		"react",
-		"prettier"
-	],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["react", "prettier"],
   "rules": {
-		"prettier/prettier": ["error"],
-		"no-unused-vars": "warn",
+    "prettier/prettier": ["error"],
+    "no-unused-vars": "warn",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"
-	}
+  }
 }
