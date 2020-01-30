@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
-    "build": "webpack --mode=production",
-    "dev": "webpack --mode=development webpack-dev-server --open"
+    "build": "webpack -p --mode=production",
+    "dev": "webpack -d --mode=development webpack-dev-server --open --inline --hot"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -27,7 +27,7 @@
     "url-loader": "^3.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
     "react": "^16.12.0",
