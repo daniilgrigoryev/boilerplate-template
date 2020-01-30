@@ -8,12 +8,19 @@ module.exports = (env, argv) => {
   const dev = argv.mode.indexOf('development') !== -1
 
   return {
+    node: {
+      fs: 'empty',
+    },
     mode: 'none',
     entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'build'),
       filename: '[name].[contenthash].js', // авторские файлы
       publicPath: dev ? '/assets/' : undefined,
+    },
+    devServer: {
+      contentBase: path.resolve(__dirname, 'build'),
+      compress: true,
     },
     module: {
       rules: [
