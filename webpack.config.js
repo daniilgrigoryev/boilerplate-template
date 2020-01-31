@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = (env, argv) => {
-  const dev = argv.mode.indexOf('development') !== -1
+  const dev = argv.mode === 'development' ? true : false
 
   return {
     node: {
@@ -15,12 +15,21 @@ module.exports = (env, argv) => {
     entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'build'),
-      filename: '[name].[contenthash].js', // авторские файлы
-      publicPath: dev ? '/assets/' : undefined,
+      filename: dev ? '[name].js' : '[name].[hash].js',
     },
     devServer: {
-      contentBase: path.resolve(__dirname, 'build'),
+      contentBase: path.join(__dirname, 'build'),
       compress: true,
+      hot: true,
+      inline: true,
+      overlay: {
+        warnings: true,
+        errors: true,
+      },
+    },
+    watchOptions: {
+      aggregateTimeout: 300,
+      ignored: /node_modules/,
     },
     module: {
       rules: [
