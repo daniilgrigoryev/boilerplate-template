@@ -3,7 +3,8 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "amd": true
   },
   "parserOptions": {
     "sourceType": "module",
