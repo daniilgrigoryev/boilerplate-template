@@ -16,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "*.{js, jsx}": [
+    "**/*.+(js|jsx|json)": [
       "node_modules/.bin/eslint",
       "prettier --write"
     ]
