@@ -8,13 +8,16 @@
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "build": "webpack -p --mode=production --progress --colors",
     "dev": "webpack -d --mode=development && webpack-dev-server --progress --colors",
-    "precommit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.{js, jsx}": [
       "node_modules/.bin/eslint --max-warnings=0",
       "prettier --write",
-      "git add"
     ]
   },
   "devDependencies": {
