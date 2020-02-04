@@ -9,6 +9,13 @@
     "build": "webpack -p --mode=production --progress --colors",
     "dev": "webpack -d --mode=development && webpack-dev-server --progress --colors"
   },
+  "lint-staged": {
+    "*.{js, jsx}": [
+      "node_modules/.bin/eslint --max-warnings=0",
+      "prettier --write",
+      "git add"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
@@ -22,6 +29,8 @@
     "eslint-plugin-react": "^7.16.0",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
     "style-loader": "^1.0.1",

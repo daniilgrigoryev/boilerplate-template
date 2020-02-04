@@ -1,16 +1,8 @@
 import React from 'react'
-
-import mainImage from '~/images/main.png'
-import download from '~/images/download.jpg'
+import StatefulEventComponent from '~/components/StatefulEventComponent'
 
 const App = () => {
-  return (
-    <div>
-      <h1>Hello word!</h1>
-      <img src={mainImage} />
-      <img src={download} />
-    </div>
-  )
+  return <StatefulEventComponent></StatefulEventComponent>
 }
 
 export default App
