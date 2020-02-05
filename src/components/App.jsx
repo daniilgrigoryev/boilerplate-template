@@ -1,8 +1,8 @@
 import React from 'react'
-import StatefulEventComponent from '~/components/StatefulEventComponent'
+import Calculator from '~/components/Calculator'
 
 const App = () => {
-  return <StatefulEventComponent></StatefulEventComponent>
+  return <Calculator></Calculator>
 }
 
 export default App
