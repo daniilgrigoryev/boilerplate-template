@@ -44,8 +44,12 @@ module.exports = (env, argv) => {
           use: ['style-loader', 'postcss-loader'],
         },
         {
-          test: /\.(png|jpg|jpeg|gif|svg)$/,
+          test: /\.(png|jpe?g|gif)$/i,
           loader: 'url-loader?limit=1&name=images/[name].[ext]',
+        },
+        {
+          test: /\.svg$/,
+          loader: 'svg-url-loader',
         },
         {
           test: /\.(woff|woff2|eot|ttf)$/,
