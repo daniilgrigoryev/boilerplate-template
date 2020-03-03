@@ -1,8 +1,8 @@
 const webpack = require('webpack')
 
 const path = require('path')
+const TerserJsPlugin = require('terser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = (env, argv) => {
@@ -12,6 +12,7 @@ module.exports = (env, argv) => {
     node: {
       fs: 'empty',
     },
+    devtool: dev ? 'inline-source-map' : false,
     mode: 'none',
     entry: './src/index.js',
     output: {
@@ -36,12 +37,17 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.(js|jsx)$/,
-          use: 'babel-loader',
+          use: ['babel-loader'],
           exclude: /node_modules/,
         },
+        // {
+        //   test: /\.scss$/,
+        //   use: ['style-loader', 'css-loader', 'sass-loader']
+        // },
         {
           test: /\.css$/,
-          use: ['style-loader', 'postcss-loader'],
+          use: ['cache-loader', 'style-loader', 'postcss-loader'],
+          exclude: /node_modules/,
         },
         {
           test: /\.(png|jpe?g|gif)$/i,
@@ -60,6 +66,7 @@ module.exports = (env, argv) => {
     resolve: {
       alias: {
         '~': path.resolve(__dirname, 'src'),
+        'react-dom': '@hot-loader/react-dom',
       },
       extensions: ['*', '.js', '.jsx', '.css'],
     },
@@ -67,13 +74,12 @@ module.exports = (env, argv) => {
       moduleIds: 'hashed',
       runtimeChunk: 'single',
       minimizer: [
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            parallel: true,
-            output: {
-              comments: false,
-            },
+        new TerserJsPlugin({
+          terserOptions: {
+            exclude: /node_modules/,
           },
+          cache: true,
+          parallel: true,
         }),
       ],
       splitChunks: {
