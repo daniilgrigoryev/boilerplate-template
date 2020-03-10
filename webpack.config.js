@@ -55,7 +55,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.svg$/,
-          loader: 'svg-url-loader',
+          loader: 'svg-inline-loader',
         },
         {
           test: /\.(woff|woff2|eot|ttf)$/,
