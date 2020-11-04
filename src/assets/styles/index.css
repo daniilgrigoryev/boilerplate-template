@@ -1,3 +1,14 @@
+html,
 body {
-  background-color: blue;
+  height: 100%;
+}
+
+* {
+  outline: 1px solid;
+}
+body {
+  background: url(../../images/pattern.png), linear-gradient(180deg, rgba(255, 130, 0, 1) 0%, rgba(255, 221, 45, 1) 100%);
+  font-family: 'Bebas Neue';
+  height: 100%;
+  overflow: hidden;
 }

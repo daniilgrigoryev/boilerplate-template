@@ -40,7 +40,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.css$/,
-          use: ['style-loader', 'postcss-loader'],
+          use: ['style-loader', 'css-loader', 'postcss-loader'],
         },
         {
           test: /\.(png|jpg|jpeg|gif|svg)$/,
@@ -53,10 +53,11 @@ module.exports = (env, argv) => {
       ],
     },
     resolve: {
-      alias: {
-        '~': path.resolve(__dirname, 'src'),
-      },
-      extensions: ['*', '.js', '.jsx', '.css'],
+        alias: {
+            '~': path.resolve(__dirname, 'src'),
+            'react-dom': '@hot-loader/react-dom',
+        },
+        extensions: ['*', '.js', '.jsx', '.css'],
     },
     optimization: {
       moduleIds: 'hashed',

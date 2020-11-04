@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "rm -rf ./build",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
-    "build": "webpack -p --mode=production",
-    "dev": "webpack -d --mode=development && webpack-dev-server"
+    "build": "npm run clean && webpack -p --mode=production --progress --colors",
+    "dev": "webpack -d --mode=development && webpack-dev-server --progress --colors"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -16,6 +16,7 @@
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.0",
     "eslint": "6.1.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.1",
@@ -31,7 +32,10 @@
     "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
+    "@hot-loader/react-dom": "^17.0.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-hot-loader": "^4.13.0"
   }
 }
