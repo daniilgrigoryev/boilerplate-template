@@ -1,14 +1,374 @@
 html,
+body,
+#app {
+  min-height: 100%;
+}
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+sup {
+  font-size: 24px !important;
+  top: -1em;
+}
 body {
-  height: 100%;
+  background: linear-gradient(180deg, #fe8d01, #ffdd2d);
+  font-family: 'Bebas Neue';
+  position: relative;
+}
+body::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  background: url(../../images/pattern.png);
+  pointer-events: none;
+  opacity: 0.95;
+}
+.wrapper {
+  width: 1170px;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-* {
-  outline: 1px solid;
+.box {
+  display: flex;
+  width: 390px;
+  height: 380px;
 }
-body {
-  background: url(../../images/pattern.png), linear-gradient(180deg, rgba(255, 130, 0, 1) 0%, rgba(255, 221, 45, 1) 100%);
+.box.first {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: space-between;
+}
+.box.first .logo {
+  margin-top: 30px;
+}
+
+.box.first .description {
+}
+
+.box.first .description span {
+  font-family: 'Marker Felt';
+  text-transform: uppercase;
+  line-height: 1.733;
+  text-shadow: 1px 1.732px 0px rgb(66, 29, 75);
+
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 100%;
+}
+.box.first .description span:nth-child(1) {
+  font-size: 60px;
+}
+.box.first .description span:nth-child(2) {
+  font-size: 90px;
+}
+.box.first .depiction {
+  font-family: 'Bebas Neue';
+  font-weight: bold;
+  font-size: 30px;
+  color: #fff;
+  line-height: 100%;
+  margin-bottom: 40px;
+}
+
+.box.second {
+  background-color: #e8335e;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+}
+.box.second .description {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+.box.second .description span {
   font-family: 'Bebas Neue';
   height: 100%;
+  line-height: 100%;
+  color: #fff;
+  font-weight: 400;
+  font-size: 48px;
+
+  line-height: 100%;
+}
+.box.second .depiction {
+  color: #fff;
+  font-size: 24px;
+  line-height: 100%;
+}
+.box.third {
+  background-color: #99cc00;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.box.fourth {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: #333366;
+}
+.box.fourth .logo {
+}
+.box.fourth .description {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+.box.fourth .description span {
+  font-family: 'Bebas Neue';
+  line-height: 100%;
+  color: #fff;
+  font-weight: 400;
+  font-size: 48px;
+}
+
+.box.fifth,
+.box.sixth {
+  align-items: flex-end;
+  background-color: #ef7d00;
+}
+.box.fifth .logo,
+.box.fifth .description,
+.box.sixth .logo,
+.box.sixth .description {
+  margin-bottom: 80px;
+}
+.box.fifth .description span,
+.box.sixth .description span {
+  font-family: 'Bebas Neue';
+  font-size: 36px;
+  line-height: 100%;
+  color: #fff;
+  font-weight: 400;
+  font-size: 36px;
+}
+.box.fifth {
+  flex-direction: row-reverse;
+}
+
+.box.seventh {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+}
+.box.seventh .description {
+}
+.box.seventh .description span {
+  font-family: 'Marker Felt';
+  font-size: 72px;
+  text-transform: uppercase;
+  line-height: 1.25;
+
+  text-shadow: 1px 1.732px 0px rgb(66, 29, 75);
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 100%;
+}
+.box.seventh .depiction {
+  margin-top: 50px;
+}
+.box.seventh .depiction span {
+  font-size: 24px;
+  font-family: 'Bebas Neue';
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.25;
+}
+.box.quiz {
+  flex-grow: 100;
+  background: #a8c514;
+  position: relative;
+  z-index: 1;
+  padding: 50px;
+  box-sizing: border-box;
+  height: auto;
+}
+.maling {
+  background: #ef7d00;
+  color: #fff;
+  padding: 50px;
+  z-index: 9;
+  position: relative;
+  width: 100%;
   overflow: hidden;
+}
+.maling h2 {
+  font-family: 'Marker Felt';
+  font-size: 60px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+.maling .description {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.maling .form {
+  display: flex;
+  justify-content: center;
+}
+.maling .form input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+}
+.maling .form input.text {
+  box-shadow: inset 0 0 0 50px #ef7d00 !important;
+  -webkit-text-fill-color: #fff;
+  border: 2px solid #fff;
+  font-family: 'DINPro-CondensedBold';
+  padding-left: 20px;
+  width: 100%;
+  min-height: 60px;
+  height: 100%;
+  outline: 0;
+}
+.maling .form input.text:nth-child(2) {
+  margin-left: 30px;
+}
+.maling .form input.button {
+  background-color: #333366;
+  text-align: center;
+  cursor: pointer;
+  outline: 0;
+  min-width: 250px;
+  font-size: 36px;
+  padding-top: 10px;
+  margin-left: 30px;
+}
+.quiz-li {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+.quiz-li .answer {
+  font-family: 'DINPro-CondensedBold';
+  color: #fff;
+  font-size: 18px;
+}
+h2.result {
+  font-size: 36px;
+  color: #fff;
+}
+p.result-description {
+  font-size: 24px;
+  color: #fff;
+}
+.again-button {
+  font-family: 'Bebas Neue';
+  background: #ff3366;
+  font-size: 36px;
+  color: #fff;
+  padding: 15px;
+  display: inline-block;
+  line-height: 100%;
+  padding-top: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.main-qustion {
+  font-family: 'Bebas Neue';
+  font-size: 36px;
+  line-height: 1.25;
+  margin: 16px 0;
+  color: #fff;
+}
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 2px solid #fff;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+footer {
+  text-align: center;
+  margin: 35px 0;
+}
+footer .description {
+  font-family: 'DINPro-CondensedBold';
+  font-size: 14px;
+  text-align: center;
+  color: rgb(33, 30, 31);
+  line-height: 1.071;
+}
+footer h4 {
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 16px 0;
+}
+footer h4 span {
+  color: #e61729;
+}
+@media screen and (max-device-width: 1600px) {
+  .box {
+    width: 100%;
+  }
 }
